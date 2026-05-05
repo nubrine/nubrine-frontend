@@ -130,3 +130,9 @@ dist
 .pnp.*
 
 .DS_Store
+
+# Serwist service worker build output
+public/sw.js
+public/sw.js.map
+public/swe-worker-*.js
+public/swe-worker-*.js.map
