@@ -1,7 +1,8 @@
 import { create } from "zustand";
 import { API_BASE } from "../lib/api";
-import { CachedUser } from "../lib/offline";
+import { cacheUser, getCachedUser, clearCachedUser } from "../lib/db";
 import { devtools } from 'zustand/middleware'
+import { CachedUser } from "../lib/offline";
 
 
 type AuthStatus = "authenticated" | "unauthenticated" | "checking";
@@ -25,13 +26,21 @@ export const useAuthStore = create<AuthState>()(
         if (res.ok) {
           const user: CachedUser = await res.json();
           set({ status: "authenticated", user });
-          //await cacheUser(user);
+          await cacheUser(user); 
         } else {
+          console.log("res.ok failed in authStore initialize, status:", res.status);
           set({ status: "unauthenticated", user: null });
         }
       } catch (error) {
         console.log("Error in authStore");
-        set({ status: "unauthenticated", user: null });
+        // this time we will load from cached uses
+        const cachedUser = await getCachedUser();
+        if (cachedUser) {
+          console.log("Loaded user from cache in authStore:", cachedUser);
+          set({ status: "authenticated", user: cachedUser });
+        } else {
+          set({ status: "unauthenticated", user: null });
+        }
       }
     },
     clearAuth: ()=>{

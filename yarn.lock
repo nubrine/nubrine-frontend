@@ -774,6 +774,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dexie-react-hooks@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "dexie-react-hooks@npm:4.4.0"
+  peerDependencies:
+    dexie: ">=4.2.0-alpha.1 <5.0.0"
+    react: ">=16"
+  checksum: 10c0/78c8dfb294868e805efa888e2ea88fa3489f9883fcaaa3c744540f06f7d2d904dd2e0b9e616038fb366e4d2f3d9f80bf27442e2a702e3bbe8731ff7ecaedf3dc
+  languageName: node
+  linkType: hard
+
+"dexie@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "dexie@npm:4.4.2"
+  checksum: 10c0/b6171347e8d7579600cc4b2ab4b1e3422991451f8f69c926caa15bdf223be9ca8ae86da87e141a2f626fa5d4647c6a9b917ffaa3f878be17c37c4c7533d5eaa6
+  languageName: node
+  linkType: hard
+
 "electron-to-chromium@npm:^1.5.328":
   version: 1.5.349
   resolution: "electron-to-chromium@npm:1.5.349"
@@ -856,6 +873,8 @@ __metadata:
     "@types/node": "npm:24.3.3"
     "@types/react": "npm:19.2.14"
     "@types/react-dom": "npm:^19.2.1"
+    dexie: "npm:^4.4.2"
+    dexie-react-hooks: "npm:^4.4.0"
     next: "npm:16.2.2"
     oxlint: "npm:^1.58.0"
     postcss: "npm:^8.5.6"

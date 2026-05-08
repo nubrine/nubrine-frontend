@@ -8,7 +8,6 @@ export default function HomePage() {
   const router = useRouter();
 
   function handleSubmit() { 
-    console.log("clicked");
     router.push("/dashboard");
   }
 
